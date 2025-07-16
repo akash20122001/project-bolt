@@ -10,7 +10,9 @@ import {
   Pill,
   Brain,
   ChevronLeft,
-  ChevronRight
+  ChevronRight,
+  BarChart3,
+  AlertTriangle
 } from 'lucide-react';
 
 export function CalendarPage() {
@@ -100,8 +102,45 @@ export function CalendarPage() {
           </button>
         </div>
 
-         {/* Upcoming Appointments - Full Width */}
-       
+        {/* This Week at a Glance */}
+        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 mb-6">
+          <div className="flex items-center space-x-3 mb-4">
+            <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
+            <h3 className="text-base sm:text-lg font-semibold text-gray-900">This Week at a Glance</h3>
+          </div>
+          
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="text-center p-3 bg-blue-50 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-blue-600">8</div>
+              <div className="text-xs sm:text-sm text-blue-700">Meds Due</div>
+            </div>
+            <div className="text-center p-3 bg-pink-50 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-pink-600">5</div>
+              <div className="text-xs sm:text-sm text-pink-700">Moods Logged</div>
+            </div>
+            <div className="text-center p-3 bg-green-50 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-green-600">3</div>
+              <div className="text-xs sm:text-sm text-green-700">Journal Entries</div>
+            </div>
+            <div className="text-center p-3 bg-purple-50 rounded-lg">
+              <div className="text-xl sm:text-2xl font-bold text-purple-600">2</div>
+              <div className="text-xs sm:text-sm text-purple-700">Appointments</div>
+            </div>
+          </div>
+          
+          <div className="mt-4 p-3 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg border border-orange-200">
+            <div className="flex items-start space-x-2">
+              <AlertTriangle className="w-4 h-4 text-orange-500 mt-0.5" />
+              <div>
+                <p className="text-xs sm:text-sm font-medium text-orange-900">AI Insight</p>
+                <p className="text-xs sm:text-sm text-orange-700 mt-1">
+                  Tuesday looks heavy — want to shift some meds or journaling?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Smart Calendar */}
         <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 mb-6">
           <div className="flex items-center justify-between mb-6">
@@ -160,44 +199,6 @@ export function CalendarPage() {
           </div>
         </div>
 
-        {/* This Week at a Glance */}
-        <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-100 mb-6">
-          <div className="flex items-center space-x-3 mb-4">
-            <BarChart3 className="w-5 h-5 sm:w-6 sm:h-6 text-green-600" />
-            <h3 className="text-base sm:text-lg font-semibold text-gray-900">This Week at a Glance</h3>
-          </div>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="text-center p-3 bg-blue-50 rounded-lg">
-              <div className="text-xl sm:text-2xl font-bold text-blue-600">8</div>
-              <div className="text-xs sm:text-sm text-blue-700">Meds Due</div>
-            </div>
-            <div className="text-center p-3 bg-pink-50 rounded-lg">
-              <div className="text-xl sm:text-2xl font-bold text-pink-600">5</div>
-              <div className="text-xs sm:text-sm text-pink-700">Moods Logged</div>
-            </div>
-            <div className="text-center p-3 bg-green-50 rounded-lg">
-              <div className="text-xl sm:text-2xl font-bold text-green-600">3</div>
-              <div className="text-xs sm:text-sm text-green-700">Journal Entries</div>
-            </div>
-            <div className="text-center p-3 bg-purple-50 rounded-lg">
-              <div className="text-xl sm:text-2xl font-bold text-purple-600">2</div>
-              <div className="text-xs sm:text-sm text-purple-700">Appointments</div>
-            </div>
-          </div>
-          
-          <div className="mt-4 p-3 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg border border-orange-200">
-            <div className="flex items-start space-x-2">
-              <AlertTriangle className="w-4 h-4 text-orange-500 mt-0.5" />
-              <div>
-                <p className="text-xs sm:text-sm font-medium text-orange-900">AI Insight</p>
-                <p className="text-xs sm:text-sm text-orange-700 mt-1">
-                  Tuesday looks heavy — want to shift some meds or journaling?
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Appointments Timeline */}
           <div className="lg:col-span-2">
@@ -322,8 +323,6 @@ export function CalendarPage() {
                 </div>
               </div>
             </div>
-        
-       
           </div>
         </div>
       </div>
