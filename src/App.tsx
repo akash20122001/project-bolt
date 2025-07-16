@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { AuthWrapper } from './components/AuthWrapper';
 import { Sidebar } from './components/Sidebar';
 import { TopBar } from './components/TopBar';
 import { FloatingActionButton } from './components/FloatingActionButton';
@@ -11,7 +12,26 @@ import { DocumentsPage } from './components/DocumentsPage';
 import { SettingsPage } from './components/SettingsPage';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentPage, setCurrentPage] = useState('dashboard');
+
+  // Check if user is already authenticated (you can implement proper auth logic here)
+  useEffect(() => {
+    const authStatus = localStorage.getItem('isAuthenticated');
+    if (authStatus === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  const handleAuthentication = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem('isAuthenticated', 'true');
+  };
+
+  // Show auth pages if not authenticated
+  if (!isAuthenticated) {
+    return <AuthWrapper onAuthenticated={handleAuthentication} />;
+  }
 
   const renderPage = () => {
     switch (currentPage) {
